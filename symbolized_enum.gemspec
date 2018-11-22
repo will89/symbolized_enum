@@ -29,10 +29,15 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "activerecord"
-  spec.add_dependency "activesupport"
-  spec.add_dependency "activerecord-type-symbol"
+  spec.add_dependency "activerecord", '>= 5.0', '< 5.3'
+  spec.add_dependency "activesupport", '>= 5.0', '< 5.3'
+  spec.add_dependency "activerecord-type-symbol", "~> 0.2.0"
 
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency 'appraisal'
+  spec.add_development_dependency 'database_cleaner'
+  spec.add_development_dependency 'pg', '~> 0.18'
+  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'with_model'
 end
