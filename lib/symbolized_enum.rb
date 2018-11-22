@@ -9,7 +9,11 @@ module SymbolizedEnum
   extend ActiveSupport::Concern
 
   module ClassMethods
-    def symbolized_enum(attr_name, predicates: false, prefixed_predicate: false, suffixed_predicate: false, predicate_name_generator: nil, **validates_inclusion_of_options)
+    def symbolized_enum(attr_name, predicates: false,
+                        prefixed_predicate: false,
+                        suffixed_predicate: false,
+                        predicate_name_generator: nil,
+                        **validates_inclusion_of_options)
       attribute(attr_name, :symbol)
       validates_inclusion_of(attr_name, validates_inclusion_of_options)
 

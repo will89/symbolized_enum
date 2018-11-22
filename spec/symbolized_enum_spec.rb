@@ -39,7 +39,8 @@ RSpec.describe SymbolizedEnum do
     it 'reports invalid enum value assignment', :aggregate_failures do
       model = ModelWithSymbolizedEnumAttribute.new(data_type: :not_a_valid_option)
       expect(model).to be_invalid
-      expect { model.save! }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Data type is not included in the list')
+      expect { model.save! }.to raise_error(ActiveRecord::RecordInvalid,
+                                            'Validation failed: Data type is not included in the list')
     end
   end
 
@@ -117,7 +118,9 @@ RSpec.describe SymbolizedEnum do
 
         model do
           include(SymbolizedEnum)
-          symbolized_enum :data_type, predicates: true, predicate_name_generator: proc { |attr_name, enum_value| "crazy_#{enum_value}_#{attr_name}_crazy?" }, in: [:string, :numeric]
+          method_name_proc = proc { |attr_name, enum_value| "crazy_#{enum_value}_#{attr_name}_crazy?" }
+          symbolized_enum :data_type, predicates: true,
+                                      predicate_name_generator: method_name_proc, in: [:string, :numeric]
         end
       end
 
