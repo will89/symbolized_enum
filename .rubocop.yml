@@ -12,6 +12,7 @@ Style/NumericLiterals:
 
 Style/FrozenStringLiteralComment:
   Enabled: true
+  EnforcedStyle: always
 
 Metrics/BlockLength:
   Exclude:

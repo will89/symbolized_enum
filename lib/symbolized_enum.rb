@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'symbolized_enum/version'
 require 'active_support'
 require 'active_record'
