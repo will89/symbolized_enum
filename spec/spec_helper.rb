@@ -19,7 +19,7 @@ db_config = YAML.safe_load(File.read('spec/db/database.yml'))
 db_host = db_config[db_adapter]['host']
 ENV['PGHOST'] ||= db_host if db_host
 
-DATABASE_NAME = 'symbolized_enum_test'.freeze
+DATABASE_NAME = 'symbolized_enum_test'
 
 RSpec.configure do |config|
   config.extend WithModel
