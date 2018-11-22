@@ -59,6 +59,11 @@ RSpec.describe SymbolizedEnum do
         expect(model.respond_to?(:string?)).to eq(true)
         expect(model.string?).to eq(true)
         expect(model.numeric?).to eq(false)
+
+        # predicate works when values are coerced
+        model.data_type = 'numeric'
+        expect(model.string?).to eq(false)
+        expect(model.numeric?).to eq(true)
       end
     end
 
