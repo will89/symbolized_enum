@@ -1,0 +1,24 @@
+Style/WordArray:
+  EnforcedStyle: brackets
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/Documentation:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'symbolized_enum.gemspec'
+
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - 'symbolized_enum.gemspec'

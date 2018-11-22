@@ -1,7 +1,7 @@
-require "symbolized_enum/version"
-require "active_support"
-require "active_record"
-require "active_record-type-symbol"
+require 'symbolized_enum/version'
+require 'active_support'
+require 'active_record'
+require 'active_record-type-symbol'
 
 module SymbolizedEnum
   extend ActiveSupport::Concern

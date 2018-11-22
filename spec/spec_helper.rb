@@ -1,4 +1,4 @@
-require "symbolized_enum"
+require 'symbolized_enum'
 
 require 'fileutils'
 require 'logger'
