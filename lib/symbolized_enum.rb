@@ -9,6 +9,16 @@ module SymbolizedEnum
   extend ActiveSupport::Concern
 
   module ClassMethods
+    # @param [String, Symbol] attr_name Activerecord attribute to treat as a symbol
+    # @param kwargs [Boolean] :predicates (false) Generate boolean methods for each enum value.
+    #   This must be true for any of the other predicate options to take effect
+    # @param kwargs [Boolean] :prefixed_predicate (false) Generate boolean methods for each enum value
+    #   prefixed with the name of the attribute
+    # @param kwargs [Boolean] :suffixed_predicate (false) Generate boolean methods for each enum value
+    #   suffixed with the name of the attribute
+    # @param kwargs [Proc, nil] :predicate_name_generator (nil) Generate boolean methods for each enum value by calling
+    #   the proc with attribute name and enum value
+    # @param [Hash] **validates_inclusion_of_options Any options accepted by activerecord's validates_inclusion_of
     def symbolized_enum(attr_name, predicates: false,
                         prefixed_predicate: false,
                         suffixed_predicate: false,
