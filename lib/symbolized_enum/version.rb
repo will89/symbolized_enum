@@ -1,0 +1,3 @@
+module SymbolizedEnum
+  VERSION = "0.1.0"
+end
