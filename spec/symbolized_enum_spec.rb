@@ -117,7 +117,7 @@ RSpec.describe SymbolizedEnum do
 
         model do
           include(SymbolizedEnum)
-          symbolized_enum :data_type, predicates: true, predicate_name_generator: Proc.new { |attr_name, enum_value| "crazy_#{enum_value}_#{attr_name}_crazy?" }, in: [:string, :numeric]
+          symbolized_enum :data_type, predicates: true, predicate_name_generator: proc { |attr_name, enum_value| "crazy_#{enum_value}_#{attr_name}_crazy?" }, in: [:string, :numeric]
         end
       end
 
