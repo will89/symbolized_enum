@@ -7,8 +7,10 @@
 /spec/reports/
 /tmp/
 /log/
+/gemfiles/*.gemfile.lock
 
 # rspec failure tracking
 .rspec_status
 
 Gemfile.lock
+
