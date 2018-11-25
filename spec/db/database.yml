@@ -1,0 +1,4 @@
+postgresql:
+  adapter: postgresql
+  database: symbolized_enum_test
+  host: localhost
