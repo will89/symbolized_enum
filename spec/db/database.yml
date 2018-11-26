@@ -1,4 +1,3 @@
-postgresql:
-  adapter: postgresql
-  database: symbolized_enum_test
-  host: localhost
+sqlite3:
+  adapter: sqlite3
+  database: ":memory:"

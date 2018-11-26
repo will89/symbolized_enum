@@ -1,5 +1,11 @@
 # SymbolizedEnum
 
+[![Gem Version](https://badge.fury.io/rb/symbolized_enum.svg)][gem]
+[![Build Status](https://travis-ci.com/will89/symbolized_enum.svg?branch=master)][travis]
+
+[gem]: https://rubygems.org/gems/symbolized_enum
+[travis]: http://travis-ci.com/will89/symbolized_enum
+
 Provides a convenient interface to using an activerecord attribute as a symbol and using validates_inclusion_of with symbols.
 Optionally, can generate predicate methods.
 
