@@ -6,4 +6,4 @@
 - Support rails 6.0
 
 ### 0.1.0
-Initial Implementation
+- Initial Implementation
