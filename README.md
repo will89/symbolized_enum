@@ -37,6 +37,18 @@ class Post < ApplicationRecord
   symbolized_enum :post_type, in: [:informative, :rant]
 end
 
+# Default value
+class Post < ApplicationRecord
+  include SymbolizedEnum
+
+  # A database column 'post_type' can be used as a symbolized enumeration by:
+  symbolized_enum :post_type, default: :informative, in: [:informative, :rant]
+end
+
+post = Post.new
+post.post_type
+=> :informative
+
 # Optional predicate methods
 class Post < ApplicationRecord
   include SymbolizedEnum
