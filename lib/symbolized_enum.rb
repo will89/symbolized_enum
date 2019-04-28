@@ -9,6 +9,8 @@ module SymbolizedEnum
   extend ActiveSupport::Concern
 
   module ClassMethods
+    NO_DEFAULT_PROVIDED = Object.new # :nodoc:
+
     # @param [String, Symbol] attr_name Activerecord attribute to treat as a symbol
     # @param kwargs [Boolean] :predicates (false) Generate boolean methods for each enum value.
     #   This must be true for any of the other predicate options to take effect
@@ -18,13 +20,20 @@ module SymbolizedEnum
     #   suffixed with the name of the attribute
     # @param kwargs [Proc, nil] :predicate_name_generator (nil) Generate boolean methods for each enum value by calling
     #   the proc with attribute name and enum value
+    # @param kwargs [Object, nil] :default This value is passed to the activerecord attribute default option
     # @param [Hash] **validates_inclusion_of_options Any options accepted by activerecord's validates_inclusion_of
     def symbolized_enum(attr_name, predicates: false,
                         prefixed_predicate: false,
                         suffixed_predicate: false,
                         predicate_name_generator: nil,
+                        default: NO_DEFAULT_PROVIDED,
                         **validates_inclusion_of_options)
-      attribute(attr_name, :symbol)
+      if default == NO_DEFAULT_PROVIDED
+        attribute(attr_name, :symbol)
+      else
+        attribute(attr_name, :symbol, default: default)
+      end
+
       validates_inclusion_of(attr_name, validates_inclusion_of_options)
 
       return unless predicates

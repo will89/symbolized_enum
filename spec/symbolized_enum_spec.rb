@@ -44,6 +44,36 @@ RSpec.describe SymbolizedEnum do
     end
   end
 
+  context 'model with default value' do
+    with_model :ModelWithSymbolizedEnumAttribute do
+      table do |t|
+        t.string :data_type
+      end
+
+      model do
+        include(SymbolizedEnum)
+        symbolized_enum :data_type, default: :string, in: [:string, :numeric]
+      end
+    end
+
+    it 'assigns and persists default enum values', :aggregate_failures do
+      model = ModelWithSymbolizedEnumAttribute.new
+      expect(model.data_type).to eq(:string)
+      expect { model.save! }.not_to raise_error
+      expect(model.reload.data_type).to eq(:string)
+    end
+
+    context 'saved record with nil in the database' do
+      it 'still returns nil', :aggregate_failures do
+        model = ModelWithSymbolizedEnumAttribute.create
+        # Bypass activerecord validation to make data_type nil in the database
+        model.update_attribute(:data_type, nil)
+        model.reload
+        expect(model.data_type).to eq(nil)
+      end
+    end
+  end
+
   context 'model with predicates' do
     context 'default predicates' do
       with_model :ModelWithSymbolizedEnumAttribute do
