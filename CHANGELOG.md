@@ -1,6 +1,7 @@
 # Changelog
 
 ### Unreleased
+- Drop support for ruby < 2.5
 
 ### 0.3.0
 - Add `default` option to `symbolized_enum` that is passed through to ActiveRecord `attribute`
