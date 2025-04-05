@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
+require 'logger'
 require 'symbolized_enum'
 
 require 'fileutils'
-require 'logger'
 require 'yaml'
 require 'database_cleaner'
 require 'with_model'

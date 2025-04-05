@@ -22,7 +22,7 @@ Metrics/BlockLength:
     - 'spec/**/*.rb'
     - 'symbolized_enum.gemspec'
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
   Exclude:
     - 'symbolized_enum.gemspec'
