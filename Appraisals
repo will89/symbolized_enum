@@ -11,4 +11,3 @@ appraise 'rails-8.0' do
   gem 'activerecord', '~> 8.0.2'
   gem 'sqlite'
 end
-
